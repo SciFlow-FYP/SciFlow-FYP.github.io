@@ -11,12 +11,17 @@
 
                   <div class="col-md-2">
                       <ul class="nav nav-pills nav-stacked">
-                          <li role="presentation" class="active"><a href="#">Home</a></li>
-                          <li role="presentation"><a href="#">Profile</a></li>
-                          <li role="presentation"><a href="#">Messages</a></li>
+                          <li role="presentation" class="active"><a [routerLink]="'Introduction'">Introduction: Why Compositional Framework for Scientific Workflows?</a></li>
+                          <li role="presentation"><a [routerLink]="'setup'">Setup</a></li>
+                          <li role="presentation"><a [routerLink]="'case-study-01'">Running Case Study 01</a></li>
+                          <li role="presentation"><a [routerLink]="'case-study-02'">Running Case Study 02</a></li>
+                          <li role="presentation"><a [routerLink]="'references'">Additional information and references</a></li>
+
                         </ul>
                   </div>
-                  <div class="col-md-8"></div>
+                  <div class="col-md-8">
+                    <router-outlet></router-outlet>
+                  </div>
 
                 </div>
           </div>

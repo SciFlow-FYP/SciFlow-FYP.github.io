@@ -10,6 +10,14 @@ import { DocumentationComponent } from './components/documentation/documentation
 import { CasestudiesComponent } from './components/casestudies/casestudies.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { HomeComponent } from './components/home/home.component';
+import { DataAnalyticsCSComponent } from './components/casestudies/data-analytics-cs/data-analytics-cs.component';
+import { TspCSComponent } from './components/casestudies/tsp-cs/tsp-cs.component';
+import { CShomeComponent } from './components/casestudies/cshome/cshome.component';
+import { IntroductionComponent } from './components/documentation/introduction/introduction.component';
+import { SetupComponent } from './components/documentation/setup/setup.component';
+import { RunCS1Component } from './components/documentation/run-cs1/run-cs1.component';
+import { RunCS2Component } from './components/documentation/run-cs2/run-cs2.component';
+import { ReferencesComponent } from './components/documentation/references/references.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +28,15 @@ import { HomeComponent } from './components/home/home.component';
     DocumentationComponent,
     CasestudiesComponent,
     AboutusComponent,
-    HomeComponent
+    HomeComponent,
+    DataAnalyticsCSComponent,
+    TspCSComponent,
+    CShomeComponent,
+    IntroductionComponent,
+    SetupComponent,
+    RunCS1Component,
+    RunCS2Component,
+    ReferencesComponent
   ],
   imports: [
     BrowserModule,
