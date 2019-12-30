@@ -25,7 +25,7 @@ const routes: Routes = [
       { path: '', component: IntroductionComponent},
       { path: 'Introduction', component: IntroductionComponent},
       { path: 'setup', component: SetupComponent},
-      { path: 'case-study-01', component: RunCS1Component},
+      { path: 'getting-Started', component: RunCS1Component},
       { path: 'case-study-02', component: RunCS2Component },
       { path: 'references', component: ReferencesComponent }
     ]

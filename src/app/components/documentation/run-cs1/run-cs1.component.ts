@@ -9,6 +9,11 @@ export class RunCS1Component implements OnInit {
 
   constructor() { }
 
+  goTo(location: string): void {
+    window.location.hash = '';
+    window.location.hash = location;
+  }
+
   ngOnInit() {
   }
 
