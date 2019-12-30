@@ -9,6 +9,12 @@ export class IntroductionComponent implements OnInit {
 
   constructor() { }
 
+  goTo(location: string): void {
+    window.location.hash = '';
+    window.location.hash = location;
+  }
+
+
   ngOnInit() {
   }
 
