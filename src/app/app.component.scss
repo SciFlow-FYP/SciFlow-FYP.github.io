@@ -1,3 +1,8 @@
-.col-md-10 {
+
+::ng-deep .col-md-10 {
   margin-top: 40px;
+}
+
+::ng-deep .panel .panel-default {
+  margin-top: 100px !important;
 }
