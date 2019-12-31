@@ -15,10 +15,12 @@ import { PagenotfoundComponent } from './common/pagenotfound/pagenotfound.compon
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FeaturesComponent } from './components/features/features.component';
+import { SupportComponent } from './components/support/support.component';
+import { OurTeamComponent } from './components/our-team/our-team.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'Downloads', component: DownloadsComponent },
+  //{ path: 'Downloads', component: DownloadsComponent },
   {
     path: 'Documentation',
     component: DocumentationComponent,
@@ -27,7 +29,7 @@ const routes: Routes = [
       { path: 'Introduction', component: IntroductionComponent},
       { path: 'setup', component: SetupComponent},
       { path: 'getting-Started', component: RunCS1Component},
-      { path: 'techniques', component: RunCS2Component },
+      { path: 'special-workflow-constructs', component: RunCS2Component },
       { path: 'projects', component: ReferencesComponent }
     ]
   },
@@ -43,6 +45,8 @@ const routes: Routes = [
   },
   { path: 'About-us', component: AboutusComponent },
   { path: 'Features', component: FeaturesComponent },
+  { path: 'Support', component: SupportComponent },
+  { path: 'Our-Team', component: OurTeamComponent },
   { path: '**', component: PagenotfoundComponent }
 ];
 

@@ -1,3 +1,174 @@
-<p>
-  TODO
-</p>
+<b>Generate multiple instances</b>
+
+<p>With SciFlow you can spawn many instances of the same module in parallel, with very little trouble!  A simple ‘for’ loop enables Parsl to generate and execute multiple instances. </p>
+
+<p>This feature comes in handy for dynamic decision making. Let us consider the following example;</p>
+
+<p>Assume that you would like to perform Hyper-Parameter Optimization (parameter tuning) on the K-Means algorithm. SciFlow would generate several instances of the K-Means algorithm, each with a different number of clusters.</p>
+
+<p>Based on the accuracy levels of the resulting instances, SciFlow could make a decision at run-time (dynamically), about the most appropriate set of parameters. The path would be directed along this path thereafter.   </p>
+
+<p>Attaining this with SciFlow is easy! Just follow the below steps. </p>
+
+<ol>
+<li>Make sure you have a ‘@python_app’ annotated python function. </li>
+<li>Within the same module call the function in a for loop and in the below format.</li>
+</ol>
+
+<div id="codeSnippet">
+<pre>
+  <code>
+results = []
+for i in numberOfClusters:
+    app_future = kmeans(i)
+    results.append(app_future)
+
+# wait for all apps to complete
+return_array = [r.result() for r in results]
+</code>
+</pre>
+</div>
+
+<ul>
+<li>Begin by defining a results array.</li>
+<li>Within a for loop, call the K-Means function to an app_future.</li>
+<li>At the end of the for loop, wait for all iterations to return with r.result(). </li>
+</ul>
+
+<br>
+
+<b>Handling multiple workflows</b>
+<p>Most workflows you would work with, will definitely have several branches. SciFlow allows for this behaviour, through its control thread. </p>
+<p>Given below is a workflow with three branches. </p>
+
+<img src="../../../assets/png/multiple.png" alt="Smiley face" class="center" width="400px">
+<br>
+<p>To program such workflows with SciFlow, we need to follow the below steps. </p>
+
+<ol>
+<li>Specify a numbering scheme for the three branches.</li>
+<li>Define the order of modules in the ‘workflow/userScript.py’ file, for each branch of the workflow.
+
+
+<p>Eg : </p>
+
+<div id="codeSnippet">
+<pre>
+  <code>
+orderOfModules1 = ["dataFilesIntegration", "countrySelection", "selectUserDefinedColumns", "dropUniqueColumns", "dropColumnsCriteria","dropRowsCriteria","removeDuplicateRows", "missingValuesMode", "combineColumns", "integrate", "normalize","randomForestClassification", "knowledge_presentation_rf"]
+
+orderOfModules2 = ["selectUserDefinedColumns","dropUniqueColumns", "removeDuplicateRows", "missingValuesMode", "addLabelColumn", "assignCountryCode", "splitDate", "appendRecords"]
+
+orderOfModules3 = ["dropUserDefinedColumns","kmeansModelTraining","knowledge_presentation","svm"]
+</code>
+</pre>
+</div>
+</li>
+
+<li>Define necessary module variables for each branch, with the numbering scheme assigned.
+
+  <div id="codeSnippet">
+  <pre>
+    <code>
+selectColumns1 = ["GLOBALEVENTID","SQLDATE", "Actor1Geo_CountryCode", "Actor2Geo_CountryCode", "Actor1EthnicCode", "Actor2EthnicCode", "QuadClass", "GoldsteinScale", "NumMentions", "AvgTone"]
+
+selectColumns2 = ["data_id", "event_date", "year", "country"]
+
+  </code>
+  </pre>
+  </div>
+
+</li>
+
+<li>Within each module, use the following code to enforce connectivity in workflow.
+
+
+  <div id="codeSnippet">
+  <pre>
+    <code>
+currentModule = "Name of Current module as defined in userScript.py"
+workflowNumber = sys.argv[1]
+
+if workflowNumber == "1":
+    orderOfModules = userScript.orderOfModules1
+    inputDataset = userScript.inputDataset1
+    outputLocation = userScript.outputLocation1
+    #Define necessary variables for module
+dropCols = userScript.dropCols1
+elif workflowNumber == "2":
+    orderOfModules = userScript.orderOfModules2
+    inputDataset = userScript.inputDataset2
+    outputLocation = userScript.outputLocation2
+    #Define necessary variables for module
+    dropCols = userScript.dropCols2
+elif workflowNumber == "3":
+    orderOfModules = userScript.orderOfModules3
+    inputDataset = userScript.inputDataset3
+    outputLocation = userScript.outputLocation3
+    #Define necessary variables for module
+    dropCols = userScript.dropCols3
+
+df = pd.DataFrame()
+for i in range(len(orderOfModules)):
+    #print(orderOfModules[i])
+    if currentModule == orderOfModules[i]:
+        if i == 0:
+            df = pd.read_csv(inputDataset)
+            break
+        else:
+            previousModule = orderOfModules[i-1]
+            df = pd.read_csv(outputLocation + previousModule + ".csv")
+            break
+
+outputDataset = outputLocation + currentModule + ".csv"
+</code>
+</pre>
+</div>
+
+</li>
+
+</ol>
+
+<p>That is it! You now have a workflow with multiple branches...</p>
+<br>
+
+<b>Channel Coordination</b>
+<p>SciFlow uses channels to facilitate communication between modules. With channel coordination SciFlow’s control thread would detect completion of events, providing an event-driven nature to the workflow. When one end of the channel receives a string, this signals the completion of a module, leading to the invocation of the next module. The string received, is now sent to the next step.  </p>
+<p>The general code structure for channel coordination is explained in Step 04 : Writing your control thread.</p>
+<p>Special workflow structures exist to assist you in building a variety of workflow structures.</p>
+<br>
+
+<b>Forks</b>
+<p>The same module needs to be directed to two different modules. These could belong to the same workflow branch or different branches.</p>
+
+<img src="../../../assets/png/fork.png" alt="Smiley face" class="center" width="400px">
+
+<p>Write the control logic in the same way above. Make sure to number the in/out channels properly to get the workflow you intended!  </p>
+<br>
+
+<b>Intersections</b>
+<p>A module would require the input of two separate modules. These too could belong to the same workflow branch or different branches.</p>
+
+<img src="../../../assets/png/intersection.png" alt="Smiley face" class="center" width="400px">
+
+<p>Define a separate function for message passing in integrate situation as below and call this function within the control thread.</p>
+
+<div id="codeSnippet">
+<pre>
+  <code>
+    <!--
+func integrateMessagePassing(inChannel1 <- chan string, inChannel2 <- chan string, outChannel chan <- string ){
+    msg1 := <- inChannel1
+    msg2 := <- inChannel2
+    outChannel <- msg1 + msg2
+}
+
+outChannelModule9 := make(chan string, 1)
+//pythonCall("workflow/integrateLabels/integrate.py", outChannelModule5)
+integratePythonCall("workflow/"+commandsArray[14], outChannelModule27, outChannelModule8, "1")
+integrateMessagePassing(outChannelModule27, outChannelModule8, outChannelModule9)
+fmt.Println(<- outChannelModule9)
+-->
+</code>
+</pre>
+</div>
