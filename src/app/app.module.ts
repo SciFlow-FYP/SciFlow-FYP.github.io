@@ -19,6 +19,8 @@ import { RunCS1Component } from './components/documentation/run-cs1/run-cs1.comp
 import { RunCS2Component } from './components/documentation/run-cs2/run-cs2.component';
 import { ReferencesComponent } from './components/documentation/references/references.component';
 import { FeaturesComponent } from './components/features/features.component';
+import { SupportComponent } from './components/support/support.component';
+import { OurTeamComponent } from './components/our-team/our-team.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { FeaturesComponent } from './components/features/features.component';
     RunCS1Component,
     RunCS2Component,
     ReferencesComponent,
-    FeaturesComponent
+    FeaturesComponent,
+    SupportComponent,
+    OurTeamComponent
   ],
   imports: [
     BrowserModule,
