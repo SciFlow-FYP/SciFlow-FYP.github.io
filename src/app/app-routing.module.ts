@@ -14,6 +14,7 @@ import { DownloadsComponent } from './components/downloads/downloads.component';
 import { PagenotfoundComponent } from './common/pagenotfound/pagenotfound.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { FeaturesComponent } from './components/features/features.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -41,6 +42,7 @@ const routes: Routes = [
     ]
   },
   { path: 'About-us', component: AboutusComponent },
+  { path: 'Features', component: FeaturesComponent },
   { path: '**', component: PagenotfoundComponent }
 ];
 

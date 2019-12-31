@@ -18,6 +18,7 @@ import { SetupComponent } from './components/documentation/setup/setup.component
 import { RunCS1Component } from './components/documentation/run-cs1/run-cs1.component';
 import { RunCS2Component } from './components/documentation/run-cs2/run-cs2.component';
 import { ReferencesComponent } from './components/documentation/references/references.component';
+import { FeaturesComponent } from './components/features/features.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ReferencesComponent } from './components/documentation/references/refer
     SetupComponent,
     RunCS1Component,
     RunCS2Component,
-    ReferencesComponent
+    ReferencesComponent,
+    FeaturesComponent
   ],
   imports: [
     BrowserModule,
