@@ -10,7 +10,7 @@
 <br>
 
 <div id="yourfirstWF">
-<h4><b>Introduction to your first SciFlow Workflow</b></h4>
+<h3>Introduction to your first SciFlow Workflow</h3>
 
 <p>Let us explore the possibilities provided by SciFlow with a simple example.</p>
 
@@ -54,7 +54,7 @@
 <br>
 
 <div id="runningyourWF">
-<h4><b>Running the Workflow</b></h4>
+<h3>Running the Workflow</h3>
 
 <p>You can run this workflow by downloading the SciFlow framework from <a href="https://github.com/SciFlow-FYP/SciFlow">https://github.com/SciFlow-FYP/SciFlow</a>, using the terminal to navigate to the SciFlow folder and then running the command, go run controlThread.go</p>
 
@@ -71,7 +71,7 @@
 <br>
 
 <div id="modules">
-  <h4><b>Step 01 : Constructing your modules</b></h4>
+  <h3>Step 01 : Constructing your modules</h3>
 
 <p>Individual workflow modules go inside the “workflow” folder of the SciFlow framework. You can break the workflow into several components as you wish. Do so by adding a subfolder within the workflow folder.</p>
 
@@ -104,7 +104,7 @@
 
 <div id="Parallelizable-functions">
 
-  <h4><b>Step 02 : Identify Parallelizable functions</b></h4>
+  <h3>Step 02 : Identify Parallelizable functions</h3>
 
 <p>SciFlow uses the python parallel scripting library, Parsl, in order to provide controlled implicit parallelism. </p>
 
@@ -152,7 +152,7 @@ for i in studentMarks:
 <div id="inputs">
 
 
-<h4><b>Step 03 : Giving your inputs</b></h4>
+<h3>Step 03 : Giving your inputs</h3>
 
 <p>The python modules you wrote would require certain user inputs. You can include this in workflow/userScript.py</p>
 
@@ -212,7 +212,7 @@ durationType = "Semester"
 
 <div id="controlThread">
 
-<h4><b>Step 04 : Writing your control thread</b></h4>
+<h3>Step 04 : Writing your control thread</h3>
 
 <p>The workflow is constructed in the main function of the <b>“controlThread.go”</b> file. The commands array is captured from the “userScript.py” file, where we assign a number to each workflow module. The control thread executes the module based on this numbering.</p>
 
@@ -255,7 +255,7 @@ fmt.Println(<- outChannelModule2)
 
 <div id="Dynamic-decisions">
 
-<h4><b>Step 05 : Dynamic decision making</b></h4>
+<h3>Step 05 : Dynamic decision making</h3>
 
 <p>Allow the framework to make path decisions by defining a control logic in “controlThread.go”. In this scenario, the decision that needs to be made is whether the student had a good semester or a bad one. The decision is to be made by comparing the individual student’s mark (out of 1000), with the class average. </p>
 
@@ -290,7 +290,7 @@ if studentTot >= int(classAvg) {
 
 <div id="parsl-config">
 
-<h4><b>Step 06 : Configuring Parsl </b></h4>
+<h3>Step 06 : Configuring Parsl </h3>
 
 <p>Parsl separates code and execution. To do so, it relies on a configuration model to describe the pool of resources to be used for execution (e.g., clusters, clouds, threads, cores).</p>
 <p>The configuration provided to Parsl tells Parsl what resources to use to run the Parsl program and apps, and how to use them. Within the SciFlow framework, we have included the following configurations;</p>
@@ -376,7 +376,7 @@ parsl.load(config_name)
 
 <div id="Build-your-own-workflow">
 
-<h4><b>Build your own workflow!</b></h4>
+<h3>Build your own workflow!</h3>
 
 <p>Lets summarize the steps you would have to follow in order to construct a workflow using SciFlow.</p>
 

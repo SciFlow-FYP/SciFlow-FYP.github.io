@@ -8,7 +8,7 @@
 <br>
 
 <div id="generate-multiple-instances">
-<b>Generate multiple instances</b>
+<h3>Generate multiple instances</h3>
 
 <p>With SciFlow you can spawn many instances of the same module in parallel, with very little trouble!  A simple ‘for’ loop enables Parsl to generate and execute multiple instances. </p>
 
@@ -48,7 +48,7 @@ return_array = [r.result() for r in results]
 <br>
 
 <div id="handling-multiple-workflows">
-<b>Handling multiple workflows</b>
+<h3>Handling multiple workflows</h3>
 <p>Most workflows you would work with, will definitely have several branches. SciFlow allows for this behaviour, through its control thread. </p>
 <p>Given below is a workflow with three branches. </p>
 
@@ -145,7 +145,7 @@ outputDataset = outputLocation + currentModule + ".csv"
 <br>
 
 <div id="channel-coordination">
-<b>Channel Coordination</b>
+<h3>Channel Coordination</h3>
 <p>SciFlow uses channels to facilitate communication between modules. With channel coordination SciFlow’s control thread would detect completion of events, providing an event-driven nature to the workflow. When one end of the channel receives a string, this signals the completion of a module, leading to the invocation of the next module. The string received, is now sent to the next step.  </p>
 <p>The general code structure for channel coordination is explained in Step 04 : Writing your control thread.</p>
 <p>Special workflow structures exist to assist you in building a variety of workflow structures.</p>
