@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RunCS2Component implements OnInit {
 
+  goTo(location: string): void {
+    window.location.hash = '';
+    window.location.hash = location;
+  }
+  
   constructor() { }
 
   ngOnInit() {

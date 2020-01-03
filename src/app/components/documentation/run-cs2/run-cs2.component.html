@@ -1,3 +1,13 @@
+<p><a (click)="goTo('generate-multiple-instances')">Generate multiple instances</a></p>
+<p><a (click)="goTo('handling-multiple-workflows')">Handling multiple workflows</a></p>
+<p><a (click)="goTo('channel-coordination')">Channel Coordination</a></p>
+<ul>
+    <li><a (click)="goTo('forks')">Forks</a></li>
+    <li><a (click)="goTo('intersections')">Intersections</a></li>
+  </ul>
+<br>
+
+<div id="generate-multiple-instances">
 <b>Generate multiple instances</b>
 
 <p>With SciFlow you can spawn many instances of the same module in parallel, with very little trouble!  A simple ‘for’ loop enables Parsl to generate and execute multiple instances. </p>
@@ -34,9 +44,10 @@ return_array = [r.result() for r in results]
 <li>Within a for loop, call the K-Means function to an app_future.</li>
 <li>At the end of the for loop, wait for all iterations to return with r.result(). </li>
 </ul>
-
+</div>
 <br>
 
+<div id="handling-multiple-workflows">
 <b>Handling multiple workflows</b>
 <p>Most workflows you would work with, will definitely have several branches. SciFlow allows for this behaviour, through its control thread. </p>
 <p>Given below is a workflow with three branches. </p>
@@ -130,22 +141,27 @@ outputDataset = outputLocation + currentModule + ".csv"
 </ol>
 
 <p>That is it! You now have a workflow with multiple branches...</p>
+</div>
 <br>
 
+<div id="channel-coordination">
 <b>Channel Coordination</b>
 <p>SciFlow uses channels to facilitate communication between modules. With channel coordination SciFlow’s control thread would detect completion of events, providing an event-driven nature to the workflow. When one end of the channel receives a string, this signals the completion of a module, leading to the invocation of the next module. The string received, is now sent to the next step.  </p>
 <p>The general code structure for channel coordination is explained in Step 04 : Writing your control thread.</p>
 <p>Special workflow structures exist to assist you in building a variety of workflow structures.</p>
 <br>
 
+<div id="forks">
 <b>Forks</b>
 <p>The same module needs to be directed to two different modules. These could belong to the same workflow branch or different branches.</p>
 
 <img src="../../../assets/png/fork.png" alt="Smiley face" class="center" width="400px">
 
 <p>Write the control logic in the same way above. Make sure to number the in/out channels properly to get the workflow you intended!  </p>
+</div>
 <br>
 
+<div id="intersections">
 <b>Intersections</b>
 <p>A module would require the input of two separate modules. These too could belong to the same workflow branch or different branches.</p>
 
@@ -171,4 +187,6 @@ fmt.Println(<- outChannelModule9)
 -->
 </code>
 </pre>
+</div>
+</div>
 </div>
