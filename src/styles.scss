@@ -1,10 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import url(http://fonts.googleapis.com/css?family=Sourece+Sans+Pro:400,300,700);
-
+//@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 * {
-  font-family: 'Sourece Sans Pro', sans-serif !important;
-  font-size: 16px;
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 18px;
 }
 
 p, li {
