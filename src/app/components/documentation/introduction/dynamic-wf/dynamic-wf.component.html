@@ -1,0 +1,22 @@
+<div id="dynamicWF">
+<h3>Dynamic Workflows</h3>
+
+<p>A workflow can be either static or dynamic. <b>Static</b> workflows require the flow of the entire workflow to
+  be defined well in advance.</p>
+
+<img src="../../../assets/png/componentWF.png" alt="Smiley face" class="center" width="500px">
+
+<p>Dynamic workflows are considered in cases where the workflow structure cannot be determined ahead of time, requiring a part of the workflow to be generated automatically. </p>
+<p>Dynamic workflows could be further divided based on the flow of information between the analysis activities in the workflow. A workflow could display dynamicity in two forms;</p>
+
+<ul>
+  <li><b>Data flow dependencies :</b> In such instances, the next step of the workflow is determined by the data produced in earlier steps.</li>
+  <li><b>Control flow dependencies :</b> The structure of the Big Data analysis solution is determined by the domain expert that orchestrates the data analysis activities in the workflow.</li>
+</ul>
+
+<p>SciFlow considers cases of Control Flow Dependent Dynamic workflows. The control thread would make a decision, based on a function written by you, and change the workflow’s path during run-time.</p>
+<br>
+
+<img src="../../../assets/png/dynamicWF.png" alt="Smiley face" class="center" width="500px">
+</div>
+<br>

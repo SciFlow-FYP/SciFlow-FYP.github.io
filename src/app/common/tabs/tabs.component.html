@@ -1,0 +1,22 @@
+<tabset #tabset>
+  <tab heading="What is a workflow?">
+    <app-workflow></app-workflow>
+  </tab>
+
+  <tab heading="Dynamic Workflows">
+    <app-dynamic-wf></app-dynamic-wf>
+  </tab>
+
+  <tab heading="Composability">
+    <app-composability></app-composability>
+  </tab>
+
+  <tab heading="Implicit Parallelism">
+    <app-implicit-parallelism></app-implicit-parallelism>
+  </tab>
+</tabset>
+
+<button type="button" class="btn btn-default" (click)='goto(0)'>What is a workflow?</button>
+<button type="button" class="btn btn-default" (click)='goto(1)'>Dynamic Workflows</button>
+<button type="button" class="btn btn-default" (click)='goto(2)'>Composability</button>
+<button type="button" class="btn btn-default" (click)='goto(3)'>Implicit Parallelism</button>

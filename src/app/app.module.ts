@@ -22,6 +22,17 @@ import { FeaturesComponent } from './components/features/features.component';
 import { SupportComponent } from './components/support/support.component';
 import { OurTeamComponent } from './components/our-team/our-team.component';
 import { NgxImageZoomModule } from 'ngx-image-zoom';
+import { TabsComponent } from './common/tabs/tabs.component';
+import { TabComponent } from './common/tabs/tab.component';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { WorkflowComponent } from './components/documentation/introduction/workflow/workflow.component';
+import { DynamicWFComponent } from './components/documentation/introduction/dynamic-wf/dynamic-wf.component';
+import { ComposabilityComponent } from './components/documentation/introduction/composability/composability.component';
+import { ImplicitParallelismComponent } from './components/documentation/introduction/implicit-parallelism/implicit-parallelism.component';
+import { TabsSetupComponent } from './common/tabs-setup/tabs-setup.component';
+import { PreRequisitesComponent } from './components/documentation/setup/pre-requisites/pre-requisites.component';
+import { RunFrameworkComponent } from './components/documentation/setup/run-framework/run-framework.component';
+import { NextStepsComponent } from './components/documentation/setup/next-steps/next-steps.component';
 
 @NgModule({
   declarations: [
@@ -43,13 +54,24 @@ import { NgxImageZoomModule } from 'ngx-image-zoom';
     ReferencesComponent,
     FeaturesComponent,
     SupportComponent,
-    OurTeamComponent
+    OurTeamComponent,
+    TabsComponent,
+    TabComponent,
+    WorkflowComponent,
+    DynamicWFComponent,
+    ComposabilityComponent,
+    ImplicitParallelismComponent,
+    TabsSetupComponent,
+    PreRequisitesComponent,
+    RunFrameworkComponent,
+    NextStepsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CollapseModule.forRoot(),
-    NgxImageZoomModule.forRoot()
+    NgxImageZoomModule.forRoot(),
+    TabsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

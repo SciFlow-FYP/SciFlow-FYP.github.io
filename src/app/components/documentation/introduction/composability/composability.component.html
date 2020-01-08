@@ -1,0 +1,8 @@
+<div id="composability">
+<h3>Composability</h3>
+
+<p>SciFlow’s composability ensures that each workflow task forms a separate, distinct program module. At implementation time each module and its inputs and outputs are well-defined; there is no confusion in the intended interface with other system modules.</p>
+<p>At checkout time the integrity of the module is tested independently; there are few scheduling problems in synchronizing the completion of several tasks before checkout can begin. Finally, the system is maintained in modular fashion; system errors and deficiencies can be traced to specific system modules, thus limiting the scope of detailed error searching.</p>
+<p>You could write your own workflow modules, depending on the scientific workflow you’re trying to construct. By stinging these modules together in a control thread, you can build a workflow, which fits your requirements.</p>
+<p>Such modules could be re-used as well, providing ease for the next time you want to construct a similar application.</p>
+<br>

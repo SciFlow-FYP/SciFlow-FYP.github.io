@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,ViewChild, OnInit } from '@angular/core';
+
+import { TabsComponent } from '../../../common/tabs/tabs.component';
 
 @Component({
   selector: 'app-introduction',
