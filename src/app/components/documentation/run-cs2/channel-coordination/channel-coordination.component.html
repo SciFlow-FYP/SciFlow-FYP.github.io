@@ -1,0 +1,46 @@
+<div id="channel-coordination">
+<h3>Channel Coordination</h3>
+<p>SciFlow uses channels to facilitate communication between modules. With channel coordination SciFlow’s control thread would detect completion of events, providing an event-driven nature to the workflow. When one end of the channel receives a string, this signals the completion of a module, leading to the invocation of the next module. The string received, is now sent to the next step.  </p>
+<p>The general code structure for channel coordination is explained in Step 04 : Writing your control thread.</p>
+<p>Special workflow structures exist to assist you in building a variety of workflow structures.</p>
+<br>
+
+<div id="forks">
+<b>Forks</b>
+<p>The same module needs to be directed to two different modules. These could belong to the same workflow branch or different branches.</p>
+
+<img src="../../../assets/png/fork.png" alt="Smiley face" class="center" width="400px">
+
+<p>Write the control logic in the same way above. Make sure to number the in/out channels properly to get the workflow you intended!  </p>
+</div>
+<br>
+
+<div id="intersections">
+<b>Intersections</b>
+<p>A module would require the input of two separate modules. These too could belong to the same workflow branch or different branches.</p>
+
+<img src="../../../assets/png/intersection.png" alt="Smiley face" class="center" width="400px">
+
+<p>Define a separate function for message passing in integrate situation as below and call this function within the control thread.</p>
+
+<div id="codeSnippet">
+<pre>
+  <code>
+    <!--
+func integrateMessagePassing(inChannel1 <- chan string, inChannel2 <- chan string, outChannel chan <- string ){
+    msg1 := <- inChannel1
+    msg2 := <- inChannel2
+    outChannel <- msg1 + msg2
+}
+
+outChannelModule9 := make(chan string, 1)
+//pythonCall("workflow/integrateLabels/integrate.py", outChannelModule5)
+integratePythonCall("workflow/"+commandsArray[14], outChannelModule27, outChannelModule8, "1")
+integrateMessagePassing(outChannelModule27, outChannelModule8, outChannelModule9)
+fmt.Println(<- outChannelModule9)
+-->
+</code>
+</pre>
+</div>
+</div>
+</div>

@@ -1,0 +1,39 @@
+<div id="generate-multiple-instances">
+<h3>Generate multiple instances</h3>
+
+<p>With SciFlow you can spawn many instances of the same module in parallel, with very little trouble!  A simple ‘for’ loop enables Parsl to generate and execute multiple instances. </p>
+
+<p>This feature comes in handy for dynamic decision making. Let us consider the following example;</p>
+
+<p>Assume that you would like to perform Hyper-Parameter Optimization (parameter tuning) on the K-Means algorithm. SciFlow would generate several instances of the K-Means algorithm, each with a different number of clusters.</p>
+
+<p>Based on the accuracy levels of the resulting instances, SciFlow could make a decision at run-time (dynamically), about the most appropriate set of parameters. The path would be directed along this path thereafter.   </p>
+
+<p>Attaining this with SciFlow is easy! Just follow the below steps. </p>
+
+<ol>
+<li>Make sure you have a ‘@python_app’ annotated python function. </li>
+<li>Within the same module call the function in a for loop and in the below format.</li>
+</ol>
+
+<div id="codeSnippet">
+<pre>
+  <code>
+results = []
+for i in numberOfClusters:
+    app_future = kmeans(i)
+    results.append(app_future)
+
+# wait for all apps to complete
+return_array = [r.result() for r in results]
+</code>
+</pre>
+</div>
+
+<ul>
+<li>Begin by defining a results array.</li>
+<li>Within a for loop, call the K-Means function to an app_future.</li>
+<li>At the end of the for loop, wait for all iterations to return with r.result(). </li>
+</ul>
+</div>
+<br>

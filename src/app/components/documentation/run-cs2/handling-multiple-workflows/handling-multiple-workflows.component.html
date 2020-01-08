@@ -1,0 +1,96 @@
+<div id="handling-multiple-workflows">
+<h3>Handling multiple workflows</h3>
+<p>Most workflows you would work with, will definitely have several branches. SciFlow allows for this behaviour, through its control thread. </p>
+<p>Given below is a workflow with three branches. </p>
+
+<img src="../../../assets/png/multiple.png" alt="Smiley face" class="center" width="400px">
+<br>
+<p>To program such workflows with SciFlow, we need to follow the below steps. </p>
+
+<ol>
+<li>Specify a numbering scheme for the three branches.</li>
+<li>Define the order of modules in the ‘workflow/userScript.py’ file, for each branch of the workflow.
+
+
+<p>Eg : </p>
+
+<div id="codeSnippet">
+<pre>
+  <code>
+orderOfModules1 = ["dataFilesIntegration", "countrySelection", "selectUserDefinedColumns", "dropUniqueColumns", "dropColumnsCriteria","dropRowsCriteria","removeDuplicateRows", "missingValuesMode", "combineColumns", "integrate", "normalize","randomForestClassification", "knowledge_presentation_rf"]
+
+orderOfModules2 = ["selectUserDefinedColumns","dropUniqueColumns", "removeDuplicateRows", "missingValuesMode", "addLabelColumn", "assignCountryCode", "splitDate", "appendRecords"]
+
+orderOfModules3 = ["dropUserDefinedColumns","kmeansModelTraining","knowledge_presentation","svm"]
+</code>
+</pre>
+</div>
+</li>
+
+<li>Define necessary module variables for each branch, with the numbering scheme assigned.
+
+  <div id="codeSnippet">
+  <pre>
+    <code>
+selectColumns1 = ["GLOBALEVENTID","SQLDATE", "Actor1Geo_CountryCode", "Actor2Geo_CountryCode", "Actor1EthnicCode", "Actor2EthnicCode", "QuadClass", "GoldsteinScale", "NumMentions", "AvgTone"]
+
+selectColumns2 = ["data_id", "event_date", "year", "country"]
+
+  </code>
+  </pre>
+  </div>
+
+</li>
+
+<li>Within each module, use the following code to enforce connectivity in workflow.
+
+
+  <div id="codeSnippet">
+  <pre>
+    <code>
+currentModule = "Name of Current module as defined in userScript.py"
+workflowNumber = sys.argv[1]
+
+if workflowNumber == "1":
+    orderOfModules = userScript.orderOfModules1
+    inputDataset = userScript.inputDataset1
+    outputLocation = userScript.outputLocation1
+    #Define necessary variables for module
+dropCols = userScript.dropCols1
+elif workflowNumber == "2":
+    orderOfModules = userScript.orderOfModules2
+    inputDataset = userScript.inputDataset2
+    outputLocation = userScript.outputLocation2
+    #Define necessary variables for module
+    dropCols = userScript.dropCols2
+elif workflowNumber == "3":
+    orderOfModules = userScript.orderOfModules3
+    inputDataset = userScript.inputDataset3
+    outputLocation = userScript.outputLocation3
+    #Define necessary variables for module
+    dropCols = userScript.dropCols3
+
+df = pd.DataFrame()
+for i in range(len(orderOfModules)):
+    #print(orderOfModules[i])
+    if currentModule == orderOfModules[i]:
+        if i == 0:
+            df = pd.read_csv(inputDataset)
+            break
+        else:
+            previousModule = orderOfModules[i-1]
+            df = pd.read_csv(outputLocation + previousModule + ".csv")
+            break
+
+outputDataset = outputLocation + currentModule + ".csv"
+</code>
+</pre>
+</div>
+
+</li>
+
+</ol>
+
+<p>That is it! You now have a workflow with multiple branches...</p>
+</div>
+<br>

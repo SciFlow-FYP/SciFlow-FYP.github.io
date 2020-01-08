@@ -33,6 +33,20 @@ import { TabsSetupComponent } from './common/tabs-setup/tabs-setup.component';
 import { PreRequisitesComponent } from './components/documentation/setup/pre-requisites/pre-requisites.component';
 import { RunFrameworkComponent } from './components/documentation/setup/run-framework/run-framework.component';
 import { NextStepsComponent } from './components/documentation/setup/next-steps/next-steps.component';
+import { TabsGettingStartedComponent } from './common/tabs-getting-started/tabs-getting-started.component';
+import { IntroComponent } from './components/documentation/run-cs1/intro/intro.component';
+import { RunwfComponent } from './components/documentation/run-cs1/runwf/runwf.component';
+import { Step1Component } from './components/documentation/run-cs1/step1/step1.component';
+import { Step2Component } from './components/documentation/run-cs1/step2/step2.component';
+import { Step3Component } from './components/documentation/run-cs1/step3/step3.component';
+import { Step4Component } from './components/documentation/run-cs1/step4/step4.component';
+import { Step5Component } from './components/documentation/run-cs1/step5/step5.component';
+import { Step6Component } from './components/documentation/run-cs1/step6/step6.component';
+import { BuildComponent } from './components/documentation/run-cs1/build/build.component';
+import { TabsSpecialwcComponent } from './common/tabs-specialwc/tabs-specialwc.component';
+import { GenerateMultipleInstancesComponent } from './components/documentation/run-cs2/generate-multiple-instances/generate-multiple-instances.component';
+import { HandlingMultipleWorkflowsComponent } from './components/documentation/run-cs2/handling-multiple-workflows/handling-multiple-workflows.component';
+import { ChannelCoordinationComponent } from './components/documentation/run-cs2/channel-coordination/channel-coordination.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +78,21 @@ import { NextStepsComponent } from './components/documentation/setup/next-steps/
     TabsSetupComponent,
     PreRequisitesComponent,
     RunFrameworkComponent,
-    NextStepsComponent
+    NextStepsComponent,
+    TabsGettingStartedComponent,
+    IntroComponent,
+    RunwfComponent,
+    Step1Component,
+    Step2Component,
+    Step3Component,
+    Step4Component,
+    Step5Component,
+    Step6Component,
+    BuildComponent,
+    TabsSpecialwcComponent,
+    GenerateMultipleInstancesComponent,
+    HandlingMultipleWorkflowsComponent,
+    ChannelCoordinationComponent
   ],
   imports: [
     BrowserModule,

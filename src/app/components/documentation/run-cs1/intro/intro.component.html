@@ -1,0 +1,43 @@
+<div id="yourfirstWF">
+<h3>Introduction to your first SciFlow Workflow</h3>
+
+<p>Let us explore the possibilities provided by SciFlow with a simple example.</p>
+
+<p>Mrs. Branson, Central High School’s Mathematics teacher wants to create a portal where her students could inquire whether they performed well during a semester or not. Student performance is calculated based on 10 different assignments given throughout the semester and marks are given out of 50 for each.</p>
+
+<p>Mrs. Branson has the following data with her;</p>
+
+<ul>
+  <li>Student Name. Eg : “John”</li>
+  <li><p>List of student’s marks for the 10 assignments, out of 50.</p> <p>Eg : [23,45,26,47,28,38,46,43,32,44]</p></li>
+  <li><p>The total assignment marks for the rest of the students, out of 1000.</p>
+  <p>Eg: [927,734,358,212,938,603,912,592,657,556,740,625,495,864,346,623,824,543,
+  951,591,833,340,690,544,797,818,847,791,727,652,856,651,686,964,765,732,662,674,714]</p></li>
+</ul>
+
+<p>The SciFlow framework could be easily used to construct a workflow in order to achieve Mrs. Branson’s vision.</p>
+
+<img src="../../../assets/png/simpleWorkflow.png" alt="Smiley face" class="center" width="500px">
+
+<ol>
+  <li>The student would be greeted first, by printing “Hello John!”</li>
+  <li>Thereafter, each of his marks would be multiplied by two, using parallel execution.</li>
+  <li>Then the class average would be calculated.</li>
+  <li>Based on a comparison between John’s total marks and the class average, the system would tell John whether he had an amazing/terrible semester.</li>
+</ol>
+
+<p>This example workflow emphasises several key features provided by SciFlow;</p>
+
+<p><b>Dynamic execution</b></p>
+
+<p>The control thread would make a decision on the path to take, going forward. In the example provided, the control thread would compare John’s mark with the class average and adjust the path accordingly.</p>
+
+<p><b>Implicit Parallelism</b></p>
+
+<p>Multiplying John’s marks is performed parallely. Each mark in the array is handled parallely using the Parsl library.</p>
+
+<p><b>High Performance Computing</b></p>
+
+<p>Mrs. Branson could easily configure the systems to run on her machine’s threads, cores or even a cluster, by simply loading a pre-written configuration file.</p>
+</div>
+<br>

@@ -1,0 +1,18 @@
+<tabset #tabset>
+  <tab heading="Generate multiple instances">
+    <app-generate-multiple-instances></app-generate-multiple-instances>
+  </tab>
+
+  <tab heading="Handling multiple workflows">
+    <app-handling-multiple-workflows></app-handling-multiple-workflows>
+  </tab>
+
+  <tab heading="Channel Coordination">
+    <app-channel-coordination></app-channel-coordination>
+  </tab>
+
+</tabset>
+
+<button type="button" class="btn btn-default" (click)='goto(0)'>Generate multiple instances</button>
+<button type="button" class="btn btn-default" (click)='goto(1)'>Handling multiple workflows</button>
+<button type="button" class="btn btn-default" (click)='goto(2)'>Channel Coordination</button>

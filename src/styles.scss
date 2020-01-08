@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
-@import url(http://fonts.googleapis.com/css?family=Sourece+Sans+Pro:400,300,700);
+//@import url(http://fonts.googleapis.com/css?family=Sourece+Sans+Pro:400,300,700);
 //@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 * {
@@ -14,12 +14,12 @@ p, li {
 }
 
 p {
-  margin-top: 1.5em ;
+  margin-top: 0em ;
   margin-bottom: 1.5em ;
 }
 
 h3 {
-  margin-top: 1.5em;
+  margin-top: 0em;
   color: #808080;
   line-height: 200%;
 }
@@ -27,3 +27,13 @@ h3 {
 .panel-default{
   border-color: #fff;
 }
+
+img {
+  margin-top: 0em ;
+  margin-bottom: 1.5em ;
+}
+/*
+tabset {
+  font-size: 10px;
+}
+*/

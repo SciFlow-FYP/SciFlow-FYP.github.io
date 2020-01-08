@@ -1,0 +1,34 @@
+<div id="Dynamic-decisions">
+
+<h3>Step 05 : Dynamic decision making</h3>
+
+<p>Allow the framework to make path decisions by defining a control logic in “controlThread.go”. In this scenario, the decision that needs to be made is whether the student had a good semester or a bad one. The decision is to be made by comparing the individual student’s mark (out of 1000), with the class average. </p>
+
+<img src="../../../assets/png/simpleWorkflow copy.png" alt="Smiley face" class="center" width="400px">
+
+<!--
+<div id="codeSnippet">
+<pre>
+  <code>
+//Dynamic decision making based on student total and class average
+outChannelModule4 := make(chan string, 1)
+
+if studentTot >= int(classAvg) {
+    //send to 'amazing' module
+    go pythonCall("workflow/"+commandsArray[3], outChannelModule4, "1")
+    go messagePassing(outChannelModule3, outChannelModule4)
+    fmt.Println(<- outChannelModule4)
+ } else {
+    //send to 'terrible' module
+    go pythonCall("workflow/"+commandsArray[4], outChannelModule4, "1")
+    go messagePassing(outChannelModule3, outChannelModule4)
+    fmt.Println(<- outChannelModule4)
+ }
+</code>
+</pre>
+</div>-->
+
+<p>Get creative and write any suitable logic with a simple if condition!</p>
+
+</div>
+<br>

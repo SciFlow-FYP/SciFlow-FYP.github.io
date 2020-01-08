@@ -1,0 +1,60 @@
+<div id="inputs">
+
+
+<h3>Step 03 : Giving your inputs</h3>
+
+<p>The python modules you wrote would require certain user inputs. You can include this in workflow/userScript.py</p>
+
+<p>Our workflow’s modules require,</p>
+
+<ul>
+  <li>The student’s name</li>
+  <li>List of student’s marks for the 10 assignments, out of 50.</li>
+  <li>The total assignment marks for the rest of the students, out of 1000.</li>
+</ul>
+
+<p>These are included in the userScript as follows; </p>
+
+<div id="codeSnippet">
+<pre>
+  <code>
+'''############WFComponent1###############'''
+
+studentName = "John."
+
+'''############WFComponent2###############'''
+
+studentMarks = [23,45,26,47,28,38,46,43,32,44]
+
+classMarks  = [927,734,358,212,938,603,912,592,657,556,740,625,495,864,346,623,824,543,951,591,833,340,690,
+544,797,818,847,791,727,652,856,651,686,964,765,732,662,674,714]
+
+'''############WFComponent3###############'''
+
+durationType = "Semester"
+</code>
+</pre>
+</div>
+
+<p>Additionally, you should recognize your workflow modules by assigning them numbers. Make sure to include the assigned number with a single hash (#) and the calling module path with double hash marks (##). </p>
+
+<div id="codeSnippet">
+<pre>
+  <code>
+#Workflow
+#0
+##WFComponent1/studentGreeting.py
+#1
+##WFComponent2/multiplyByTwo.py
+#2
+##WFComponent2/calculateAvg.py
+#3
+##WFComponent3/amazing.py
+#4
+##WFComponent3/terrible.py
+</code>
+</pre>
+</div>
+
+</div>
+<br>

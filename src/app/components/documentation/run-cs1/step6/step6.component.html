@@ -1,0 +1,85 @@
+<div id="parsl-config">
+
+<h3>Step 06 : Configuring Parsl </h3>
+
+<p>Parsl separates code and execution. To do so, it relies on a configuration model to describe the pool of resources to be used for execution (e.g., clusters, clouds, threads, cores).</p>
+<p>The configuration provided to Parsl tells Parsl what resources to use to run the Parsl program and apps, and how to use them. Within the SciFlow framework, we have included the following configurations;</p>
+
+<ul>
+  <li>Threads on your local machine (local_threads)</li>
+  <li>Cores on your local machine (local_htex)</li>
+  <li>On an Ad Hoc Cluster (remote_htex)</li>
+</ul>
+
+
+<p>You can simply load these pre-written configurations with the following command in the <b>workflow/parslConfig.py</b> file.</p>
+
+<div id="codeSnippet">
+<pre>
+  <code>
+parsl.load(config_name)
+</code>
+</pre>
+</div>
+
+
+<p>The configuration files (in <b>workflow/configs/</b>) need to be slightly amended as per the configurations of your machine/cluster.</p>
+
+<table class="table table-hover table-bordered">
+  <thead>
+      <tr>
+        <th></th>
+        <th>Provider, channel and executor</th>
+        <th>Parameters to be Changed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>Local Threads</b></td>
+        <td>
+          <p>from parsl.executors.threads import ThreadPoolExecutor</p>
+        </td>
+        <td>
+          <p>max_threads – Number of threads.</p>
+          <p>Default is 2.</p>
+        </td>
+      </tr>
+      <tr>
+        <td><b>Local Cores</b></td>
+        <td>
+          <p>from parsl.providers import LocalProvider</p>
+          <p>from parsl.channels import LocalChannel</p>
+          <p>from parsl.executors import HighThroughputExecutor</p>
+        </td>
+        <td>
+          <p>cores_per_worker – cores to be assigned to each worker. </p>
+          <p>Oversubscription is possible by setting cores_per_worker < 1.0. Default is 1.</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td><b>Ad-Hoc Cluster</b></td>
+        <td>
+          <p>from parsl.providers import AdHocProvider</p>
+          <p>from parsl.channels import SSHChannel</p>
+          <p>from parsl.executors import HighThroughputExecutor</p>
+          <p>from parsl.providers import LocalProvider</p>
+          <p>from parsl.channels import LocalChannel</p>
+
+        </td>
+        <td>
+          <p>'username': ‘YOUR USERNAME’</p>
+          <p>'script_dir': 'YOUR SCRIPT DIRECTORY'</p>
+          <p>'remote_hostnames': ['REMOTE HOST URL 1','REMOTE HOST URL 2', ...]</p>
+        </td>
+      </tr>
+    </tbody>
+
+
+</table>
+
+<p>Parsl provides numerous other execution environments as well, such as, Amazon Web Services, Google Cloud, Slurm based cluster or supercomputer, Torque/PBS based cluster or supercomputer, Kubernetes cluster etc. If you wish to configure SciFlow for these environments, you could easily do so by writing the configuration within the workflow/configs/ folder and thereafter, loading it in the workflow/parslConfig.py file.</p>
+<p>Take a look at <a href="https://www.google.com/url?q=https://parsl.readthedocs.io/en/stable/userguide/configuring.html&sa=D&ust=1577686169444000&usg=AFQjCNH6U2YMs-WXvnS4vGo2wLVJaxgbvg">Parsl’s documentation</a> for further information on configuration!</p>
+
+
+</div>

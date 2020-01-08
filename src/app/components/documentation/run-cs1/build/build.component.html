@@ -1,0 +1,56 @@
+<div id="Build-your-own-workflow">
+
+<h3>Build your own workflow!</h3>
+
+<p>Lets summarize the steps you would have to follow in order to construct a workflow using SciFlow.</p>
+
+<ol>
+  <li>
+    <b>Constructing your modules</b>
+    <br>
+    <p>Formulate the workflow you would like to construct.</p>
+    <p>Navigate to the ‘workflow’ folder.</p>
+    <p>Create subfolders within the ‘workflow’ folder for each workflow component. Name these folders as appropriate. </p>
+    <p>Write the workflow modules within these subfolders, as python functions.</p>
+    <p>Make sure that there is a print statement at the end of each module.</p>
+  </li>
+  <li>
+    <b>Identify Parallelizable functions</b>
+    <br>
+    <p>Identify functions that could be performed in parallel.</p>
+    <p>Annotate such functions with the <b>@python_app</b> decorator.</p>
+    <p>Call the function using a ‘for’ loop, in order to execute parallely. The for loop is to be written within the python module in subject. </p>
+  </li>
+  <li>
+    <b>Giving your inputs</b>
+    <br>
+    <p>Write the user inputs necessary for running the python modules in the ‘workflow/userScript.py’ file. </p>
+    <p>Assigning numbers to workflow modules. Make sure to include the assigned number with a single hash (#) and the calling module path with double hash marks (##). </p>
+  </li>
+  <li>
+    <b>Writing your control thread</b>
+    <br>
+    <p>Think back to the workflow you formulated in step 01. Let’s construct the control thread in accordance with that workflow!</p>
+    <p>Within the main function of the ‘controlThread.go’ file, call the workflow modules using the numbers assigned in userScript.py. Write the control thread code in the following format.</p>
+    <p>outChannelModule(n) := make(chan string, 1)</p>
+    <p>go pythonCall("workflow/"+commandsArray[i], outChannelModule(n), "1")</p>
+    <p>go messagePassing(outChannelModule(n-1), outChannelModule(n))</p>
+    <p>fmt.Println(<- outChannelModule(n))</p>
+    <p>Apply additional workflow construct where necessary, by following the instructions given in Special Workflow Constructs. </p>
+  </li>
+  <li>
+    <b>Dynamic decision making</b>
+    <br>
+    <p>Write the decision making function as a golang function, in the controlThread.go file. </p>
+    <p>Within the main function in controlThread.go file, direct channels to the appropriate module with an ‘if’ condition. </p>
+  </li>
+  <li>
+    <b>Configuring Parsl </b>
+    <br>
+    <p>Load the pre-written configurations in the <b>workflow/parslConfig.py</b> file.</p>
+  </li>
+</ol>
+
+<p>Following these steps you can build any type of scientific workflow in future!</p>
+
+</div>

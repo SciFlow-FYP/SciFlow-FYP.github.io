@@ -1,0 +1,46 @@
+<div id="Parallelizable-functions">
+
+  <h3>Step 02 : Identify Parallelizable functions</h3>
+
+<p>SciFlow uses the python parallel scripting library, Parsl, in order to provide controlled implicit parallelism. </p>
+
+<p>Firstly, you should identify functions which could be performed in parallel. In our workflow, multiplyByTwo.py includes such a function. Mrs. Branson assigns marks out of 50. This needs to be converted to marks out of 100, in order to conform to school policy. To do so, she must multiply the list of John’s marks by two. Since each multiplication is independent of each other, this function could be performed in parallel.  </p>
+
+<p>The parallelization process is two-fold;</p>
+
+<ul>
+  <li>Annotate functions that can be executed in parallel as Parsl apps.</li>
+  <li>Specify dependencies between functions using standard Python code.</li>
+</ul>
+
+<p>In Parsl, an <b>app</b> is a piece of code that can be asynchronously executed on an execution resource. Parsl provides support for pure Python apps (python_app). The execution of an app yields futures. These futures can be passed to other apps as inputs, establishing a dependency. </p>
+
+<p>Let’s parallelize the <b>multiplyByTwo(x)</b> function in <b>workflow/WFComponent2/multiplyByTwo.py</b>. This  is made a Parsl App using the <b>@python_app</b> decorator.</p>
+
+<div id="codeSnippet">
+<pre>
+  <code>
+@python_app
+def multiplyByTwo (x):
+    multiplyByTwo = x*2
+    return multiplyByTwo
+</code>
+</pre>
+</div>
+
+<p>The most common way that Parsl apps are executed in parallel is via looping. A simple for loop could be used in order to multiply each element in the marks array in parallel.</p>
+
+<div id="codeSnippet">
+<pre>
+  <code>
+mulTwoArray = []
+for i in studentMarks:
+    mulTwoArray.append(multiplyByTwo(i).result())
+  </code>
+  </pre>
+  </div>
+
+<p>For further instructions on parallelization with Parsl, check out their user guide at <a href="https://parsl.readthedocs.io/en/stable/userguide/index.html">https://parsl.readthedocs.io/en/stable/userguide/index.html</a></p>
+
+</div>
+<br>
