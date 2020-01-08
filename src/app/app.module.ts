@@ -47,6 +47,8 @@ import { TabsSpecialwcComponent } from './common/tabs-specialwc/tabs-specialwc.c
 import { GenerateMultipleInstancesComponent } from './components/documentation/run-cs2/generate-multiple-instances/generate-multiple-instances.component';
 import { HandlingMultipleWorkflowsComponent } from './components/documentation/run-cs2/handling-multiple-workflows/handling-multiple-workflows.component';
 import { ChannelCoordinationComponent } from './components/documentation/run-cs2/channel-coordination/channel-coordination.component';
+import { GototopComponent } from './common/gototop/gototop.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -92,14 +94,16 @@ import { ChannelCoordinationComponent } from './components/documentation/run-cs2
     TabsSpecialwcComponent,
     GenerateMultipleInstancesComponent,
     HandlingMultipleWorkflowsComponent,
-    ChannelCoordinationComponent
+    ChannelCoordinationComponent,
+    GototopComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CollapseModule.forRoot(),
     NgxImageZoomModule.forRoot(),
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

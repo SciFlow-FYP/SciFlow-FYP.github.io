@@ -1,0 +1,24 @@
+/*
+button {
+  //position: fixed;
+  bottom: 5px;
+  right: 5px;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 5px;
+  outline: none;
+}
+*/
+
+.scroll-to-top {
+ position: fixed;
+ bottom: 15px;
+ right: 15px;
+ opacity: 0;
+ transition: all .2s ease-in-out;
+ outline: none;
+}
+.show-scrollTop {
+ opacity: 1;
+ transition: all .2s ease-in-out;
+}
