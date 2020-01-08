@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+//import { NgxImageZoomService } from 'ngx-imag-zoom';
 
 @Component({
   selector: 'app-data-analytics-cs',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DataAnalyticsCSComponent implements OnInit {
 
-  constructor() { }
+  myThumbnail="../../../assets/workflowx.png";
+  myFullresImage="../../../assets/workflowx.png";
+
+  constructor () {}
 
   ngOnInit() {
   }

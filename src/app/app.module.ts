@@ -21,6 +21,7 @@ import { ReferencesComponent } from './components/documentation/references/refer
 import { FeaturesComponent } from './components/features/features.component';
 import { SupportComponent } from './components/support/support.component';
 import { OurTeamComponent } from './components/our-team/our-team.component';
+import { NgxImageZoomModule } from 'ngx-image-zoom';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { OurTeamComponent } from './components/our-team/our-team.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CollapseModule.forRoot()
+    CollapseModule.forRoot(),
+    NgxImageZoomModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

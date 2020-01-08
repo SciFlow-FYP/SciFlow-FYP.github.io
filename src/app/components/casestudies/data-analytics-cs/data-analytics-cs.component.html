@@ -27,7 +27,19 @@
 
 </ul>
 <br>
-<img class="media-object" src="../../../assets/workflow.png" width="650">
+<h1>
+  {{title}}
+</h1>
+<ngx-image-zoom
+    [thumbImage]=myThumbnail
+    [fullImage]=myFullresImage
+    [magnification]="3"
+    [enableScrollZoom]="true"
+    [enableLens]="true"
+    [lensWidth]="200"
+></ngx-image-zoom>
+
+<!--<img class="media-object" src="../../../assets/workflow.png" width="650">-->
 <br>
 <p>The workflow can be broken down to several components;</p>
 
