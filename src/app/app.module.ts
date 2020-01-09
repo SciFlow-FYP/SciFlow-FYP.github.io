@@ -49,6 +49,7 @@ import { HandlingMultipleWorkflowsComponent } from './components/documentation/r
 import { ChannelCoordinationComponent } from './components/documentation/run-cs2/channel-coordination/channel-coordination.component';
 import { GototopComponent } from './common/gototop/gototop.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FooterComponent } from './common/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -95,7 +96,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     GenerateMultipleInstancesComponent,
     HandlingMultipleWorkflowsComponent,
     ChannelCoordinationComponent,
-    GototopComponent
+    GototopComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
