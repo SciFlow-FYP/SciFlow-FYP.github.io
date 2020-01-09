@@ -1,0 +1,76 @@
+<p>Results were evaluated under two main criteria; <b>Time</b> and <b>Flexibility</b>. </p>
+
+<h3>Time</h3>
+
+<p>Channel coordination slightly increases the time taken to complete, while using Parsl reduces the time. There is a communication delay when employing all the machines in the cluster with our framework. We think this may become negligible as the dataset grows larger.</p>
+<p>The time taken to complete could be ranked as below; (from best to worst)</p>
+
+<table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Rank</th>
+        <th scope="col">Go</th>
+        <th scope="col">Parsl</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>
+          Without
+        </td>
+        <td>
+          With
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>
+          With
+        </td>
+        <td>
+          With
+        </td>
+
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>
+          Without
+        </td>
+        <td>
+          Without
+        </td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>
+          With
+        </td>
+        <td>
+          Without
+        </td>
+      </tr>
+
+    </tbody>
+
+
+</table>
+
+<p>Using cores of a local machine significantly reduces the time consumed. The time taken, utilizing our cluster is similar to this value, owing to the cluster machines not being adequately strong and the communication delay involved.</p>
+
+<h3>Flexibility</h3>
+
+<b>Without Channel Coordination : </b>
+
+<p>The individual modules need to be executed from a shell script.</p>
+<p>It is not possible to perform dynamic decision making at run-time.</p>
+<p>Less time taken to complete.</p>
+
+<h3>Without Implicit Parallelism : </h3>
+
+<p>Cannot run on different configurations (threads/ cores/ clusters) easily. Would require MPI programming or a similar technology. </p>
+<p>Longer time taken to complete.   </p>
+
+<p>SciFlow provides benefits along the dimensions of both time and flexibility, as measured on this case study. Using SciFlow on a Data Analytics workflow defenielty enhances the user’s expressiveness, and allows them to define a dynamic workflow. Channel coordination provided control to an event-driven workflow. Control is separated from coordination, allowing Data Analytics modules to be reusable, as is the general practice in the domain.</p>
+<p>We’d love to know your opinion on our Data Analytics case study. We’re open to any suggestions on how to improve the process. Let’s talk on our forum!</p>

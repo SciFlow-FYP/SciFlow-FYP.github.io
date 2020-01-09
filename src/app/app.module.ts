@@ -50,6 +50,10 @@ import { ChannelCoordinationComponent } from './components/documentation/run-cs2
 import { GototopComponent } from './common/gototop/gototop.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './common/footer/footer.component';
+import { TabsDaComponent } from './common/tabs-da/tabs-da.component';
+import { DaComponent } from './components/casestudies/data-analytics-cs/da/da.component';
+import { ResultsComponent } from './components/casestudies/data-analytics-cs/results/results.component';
+import { EvaluationComponent } from './components/casestudies/data-analytics-cs/evaluation/evaluation.component';
 
 @NgModule({
   declarations: [
@@ -97,7 +101,11 @@ import { FooterComponent } from './common/footer/footer.component';
     HandlingMultipleWorkflowsComponent,
     ChannelCoordinationComponent,
     GototopComponent,
-    FooterComponent
+    FooterComponent,
+    TabsDaComponent,
+    DaComponent,
+    ResultsComponent,
+    EvaluationComponent
   ],
   imports: [
     BrowserModule,

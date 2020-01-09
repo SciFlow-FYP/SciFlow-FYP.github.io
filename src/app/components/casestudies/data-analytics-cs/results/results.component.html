@@ -1,0 +1,21 @@
+<p>Evaluating the SciFlow framework was performed under the following criteria; </p>
+<ul>
+<li>Running SciFlow on three different Parsl configurations
+  <ul>
+    <li>Threads on a local machine</li>
+    <li>Utilizing cores of a local machine</li>
+    <li>On a cluster</li>
+  </ul>
+
+</li>
+<li>Removing the Golang control thread from the framework, while leaving Parsl. The individual python modules were called from a shell script. With Parsl left, we evaluated again with the same three configurations mentioned above. </li>
+<li>Removing implicit parallelism (Parsl) from the framework and running the Go control thread.</li>
+<li>Removing both Parsl and Go. The individual modules were run using a shell script. </li>
+</ul>
+
+<p>We ran the above scenarios on a cluster consisting of 4 machines; three machines with 4GB RAM and one machine with 12GB RAM. The dataset used, consists of three months of GDELT data. </p>
+<p>The results are as follows; </p>
+
+<img class="media-object" src="../../../assets/DA results.png" width="700">
+
+<p>You can find the resources used for evaluation on our GitHub repository : <a href="https://github.com/SciFlow-FYP/Evaluation">https://github.com/SciFlow-FYP/Evaluation</a></p>
