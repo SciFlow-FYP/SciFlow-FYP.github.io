@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 * {
   font-family: 'Roboto', sans-serif !important;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 p, li {
@@ -26,14 +26,20 @@ h3 {
 
 .panel-default{
   border-color: #fff;
+  box-shadow:none;
 }
+
+.panel-default .noshadow {
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+    }
 
 img {
   margin-top: 0em ;
   margin-bottom: 1.5em ;
 }
-/*
-tabset {
+
+::ng-deep tab {
   font-size: 10px;
 }
-*/
