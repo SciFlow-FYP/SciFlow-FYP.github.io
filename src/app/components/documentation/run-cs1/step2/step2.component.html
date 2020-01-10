@@ -17,16 +17,16 @@
 
 <p>Let’s parallelize the <b>multiplyByTwo(x)</b> function in <b>workflow/WFComponent2/multiplyByTwo.py</b>. This  is made a Parsl App using the <b>@python_app</b> decorator.</p>
 
-<div id="codeSnippet">
+
 <pre>
-  <code>
+<code>
 @python_app
 def multiplyByTwo (x):
     multiplyByTwo = x*2
     return multiplyByTwo
 </code>
 </pre>
-</div>
+
 
 <p>The most common way that Parsl apps are executed in parallel is via looping. A simple for loop could be used in order to multiply each element in the marks array in parallel.</p>
 

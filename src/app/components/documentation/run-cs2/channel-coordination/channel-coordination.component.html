@@ -23,24 +23,24 @@
 
 <p>Define a separate function for message passing in integrate situation as below and call this function within the control thread.</p>
 
-<div id="codeSnippet">
+
 <pre>
   <code>
-    <!--
-func integrateMessagePassing(inChannel1 <- chan string, inChannel2 <- chan string, outChannel chan <- string ){
-    msg1 := <- inChannel1
-    msg2 := <- inChannel2
-    outChannel <- msg1 + msg2
-}
+
+func integrateMessagePassing(inChannel1 &lt;- chan string, inChannel2 &lt;- chan string, outChannel chan &lt;- string ) {{'{'}}
+    msg1 := &lt;- inChannel1
+    msg2 := &lt;- inChannel2
+    outChannel &lt;- msg1 + msg2
+{{'}'}}
 
 outChannelModule9 := make(chan string, 1)
 //pythonCall("workflow/integrateLabels/integrate.py", outChannelModule5)
 integratePythonCall("workflow/"+commandsArray[14], outChannelModule27, outChannelModule8, "1")
 integrateMessagePassing(outChannelModule27, outChannelModule8, outChannelModule9)
-fmt.Println(<- outChannelModule9)
--->
+fmt.Println(&lt;- outChannelModule9)
+
 </code>
 </pre>
-</div>
+
 </div>
 </div>

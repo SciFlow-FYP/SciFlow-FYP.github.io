@@ -6,27 +6,27 @@
 
 <img src="../../../assets/png/simpleWorkflow copy.png" alt="Smiley face" class="center" width="400px">
 
-<!--
+
 <div id="codeSnippet">
 <pre>
   <code>
 //Dynamic decision making based on student total and class average
 outChannelModule4 := make(chan string, 1)
 
-if studentTot >= int(classAvg) {
+if studentTot &gt;= int(classAvg){{'{'}}
     //send to 'amazing' module
     go pythonCall("workflow/"+commandsArray[3], outChannelModule4, "1")
     go messagePassing(outChannelModule3, outChannelModule4)
-    fmt.Println(<- outChannelModule4)
- } else {
+    fmt.Println(&lt;- outChannelModule4)
+{{'}'}} else {{'{'}}
     //send to 'terrible' module
     go pythonCall("workflow/"+commandsArray[4], outChannelModule4, "1")
     go messagePassing(outChannelModule3, outChannelModule4)
-    fmt.Println(<- outChannelModule4)
- }
+    fmt.Println(&lt;- outChannelModule4)
+{{'{'}}
 </code>
 </pre>
-</div>-->
+</div>
 
 <p>Get creative and write any suitable logic with a simple if condition!</p>
 

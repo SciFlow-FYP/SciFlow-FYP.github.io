@@ -43,3 +43,21 @@ img {
 ::ng-deep tab {
   font-size: 10px;
 }
+
+pre {
+    overflow: auto;
+    color: #00EE76;
+    background: #000000;
+    padding: 20;
+    //font-size: 0.8rem;
+    //font-family: Menlo, Monaco, monospace;
+    -moz-tab-size: 2;
+    -o-tab-size: 2;
+    tab-size: 2;
+    position: relative;
+	  //width: 300px;
+}
+
+pre {
+  font-size: 14px;
+}
