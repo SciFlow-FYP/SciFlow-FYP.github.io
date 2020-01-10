@@ -54,6 +54,10 @@ import { TabsDaComponent } from './common/tabs-da/tabs-da.component';
 import { DaComponent } from './components/casestudies/data-analytics-cs/da/da.component';
 import { ResultsComponent } from './components/casestudies/data-analytics-cs/results/results.component';
 import { EvaluationComponent } from './components/casestudies/data-analytics-cs/evaluation/evaluation.component';
+import { TabsTspComponent } from './common/tabs-tsp/tabs-tsp.component';
+import { TspComponent } from './components/casestudies/tsp-cs/tsp/tsp.component';
+import { ResultsTspComponent } from './components/casestudies/tsp-cs/results-tsp/results-tsp.component';
+import { EvaluationTspComponent } from './components/casestudies/tsp-cs/evaluation-tsp/evaluation-tsp.component';
 
 @NgModule({
   declarations: [
@@ -105,7 +109,11 @@ import { EvaluationComponent } from './components/casestudies/data-analytics-cs/
     TabsDaComponent,
     DaComponent,
     ResultsComponent,
-    EvaluationComponent
+    EvaluationComponent,
+    TabsTspComponent,
+    TspComponent,
+    ResultsTspComponent,
+    EvaluationTspComponent
   ],
   imports: [
     BrowserModule,

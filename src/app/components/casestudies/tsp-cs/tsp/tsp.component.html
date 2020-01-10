@@ -1,0 +1,70 @@
+<h3>A Particle Swarm Optimization solution for the Travelling Salesman Problem</h3>
+
+<h3>Introducing the Travelling Salesman Problem</h3>
+<p>The Travelling Salesman Problem (TSP) seeks to find the shortest Hamiltonian Cycle in a graph. This is a combinatorial optimization problem in both operations research and theoretical computer science. In other words, the task is to find the shortest possible tour that visits each city exactly once, when a list of cities and their pairwise distances are given.  </p>
+
+<img class="media-object" src="../../../assets/png/tsp/1_3Ct_bqpIsDVnMEJh6R29Hw.png" width="600">
+
+<p>The TSP can be expressed in two forms;</p>
+
+<ul>
+  <li>The Combinatorial Optimization version, where we need to find the shortest hamiltonian cycle in a graph of cities </li>
+  <li>And the Decision version, where we check the existence of a hamiltonian cycle in a graph, smaller than a given weight.</li>
+</ul>
+
+<p>The Combinatorial Optimization version belongs to the NP Hard set of problems, which implies that no polynomial time algorithm exists even for checking the correctness of a given solution. The Decision version belong to the NP Complete set of problems, where a solution can be checked in polynomial time. </p>
+<p>Without a proof that P!=NP, it can only be assumed that there is no efficient algorithm for solving TSP. In the worst case, the running time of a TSP algorithm can increase exponentially with the number of cities, so even some instances will take many CPU years to be solved exactly. Owing to this computational complexity, HPC is necessary when handling TSPs.  </p>
+
+<h3>Introducing Particle Swarm Optimization</h3>
+
+<p>Bio-inspired algorithms are based on biological models and using some simple rules, they generate cooperative and/or competitive behaviour, trying to reach some optimal solution. A subgroup of bio-inspired algorithms is evolutionary algorithms. Evolutionary algorithms are based on populations that evolve with time and have a stochastic component aimed at escaping from entrapment in local optima. Examples of such algorithms include, </p>
+
+<ul>
+  <li>Genetic Algorithms</li>
+  <li>Ant Colony Optimization</li>
+  <li>Differential Evolution</li>
+  <li>Particle Swarm Optimization</li>
+</ul>
+
+
+<p>Particle Swarm Optimization (PSO) was introduced in 1995 by Kennedy by Eberhart, PSO is a search method which utilizes a set of agents that move through the search space to find the global minimum of an objective function. The original research started out to acquire local agent rules for simulating the social behaviour of a flock of birds or a school of fish. </p>
+<p>PSO is now being applied in many fields, requiring parameter optimization, in a high-dimensional space. The algorithm is favoured, owing to its simplicity and high efficiency in searching. PSO converges quicker relative to other population-based optimization algorithms, such as GA, and also offer good quality solutions. </p>
+<p>In a PSO system, each particle has two properties; position and velocity. There properties represent a candidate solution, which is represented as an objective function. In each iteration, the objective function is finding out to establish fitness value of each particle, using position as input. Fitness value indicates which position is better. </p>
+<p>Each particle flies in the search space with a velocity, which is dynamically adjusted based on its own and its companions’ flying experience. In other words, every particle will utilize both </p>
+
+<ul>
+<li>the present best position information of its own (pbest)</li>
+<li>And the global best position information that the swarm has searched up to now (gbest)</li>
+</ul>
+
+<p>in order to modify its velocity and thus arrive at a new position. </p>
+
+<img class="media-object" src="../../../assets/png/tsp/10462_2013_9400_Fig2_HTML.gif">
+
+<h3>A PSO solution for TSP</h3>
+
+<p>The PSO principle can be applied to the TSP as follows; </p>
+
+<ul>
+
+
+<li>A solution of a particle is a permutation of all cities.
+<p>Eg : (a, d, g, b, e)</p></li>
+<li>The velocity of a particle is a sequence of swap operators.
+
+<p>Eg : </p>
+<p>Swap Operator (SO) = SO (1,2) //Swap first visited city with second visited city</p>
+<p>Swap Sequence (SS) = (SO(1,2), SO(5,4), SO(5,1))</p></li>
+</ul>
+<p>We follow the below steps in applying PSO to TSP.</p>
+
+Screen shot of the algorithm
+
+<h3>TSP-PSO with SciFlow</h3>
+
+<p>With SciFlow, the control thread can make decisions on the path to re-direct. By allowing the control thread to communicate the gbest parameter values, we have succeeded in attaining better convergence with the global minima.   </p>
+<p>Parsl would initialize a set of PSO instances with the same parameter set (number of iterations, number of particles, alpha and beta). The control thread would capture the gbest values from these instances, and would generate a new set of Parsl-PSO instances, with this value as beginning gbest. This process is depicted in the below image and would provide better direction and faster convergence to the algorithm.  </p>
+
+<img class="media-object" src="../../../assets/png/tsp/tsp.png" width="600">
+
+<p>The control thread coordination multiple steps of the algorithm, function as a workflow. Dynamicity is brought in by the control thread selecting the gbest and initializing instances accordingly. </p>

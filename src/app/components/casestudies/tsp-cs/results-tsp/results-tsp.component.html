@@ -1,0 +1,31 @@
+<p>The TSP-PSO algorithm on the SciFlow framework was tested on the below dataset; <a href="http://www.math.uwaterloo.ca/tsp/world/qa194.tsp">http://www.math.uwaterloo.ca/tsp/world/qa194.tsp</a></p>
+
+<pre>
+
+Country : Qatar
+Instance Created:  July 29, 2001
+Number of Cities:  194
+Optimal Value:  9,352
+Solved:  July 30, 2001
+Solution Method:  concorde (default settings), QSopt LP solver
+Solution Time:  2.09 seconds, AMD Athlon 1.33 GHz
+
+</pre>
+
+<img class="media-object" src="../../../assets/png/tsp/qatour.gif" width="350">
+
+<p>This is an optimal tour for the qa194 TSP instance. It has length 9352.</p>
+<p>The results of our runs with SciFlow are included in the following table. Although the optimal solution of 9,352 wasn’t reached, we observed a significant convergence with the introduction of the framework’s methodology.</p>
+<p>Notice the following; </p>
+<ul>
+<li>Result A vs. Result B indicates running the algorithm with and without, stops in the control thread. Using steps (pauses) in the control thread has lead to better convergence.</li>
+<li>Result B vs. Result C demonstrate the benefit of running several Parsl instances in parallel, leading to a better quality solution. </li>
+<li>The number of Parsl instances, the number of PSO particles and the number of steps in the control thread are positively correlated with the quality of the solution. </li>
+</ul>
+
+<img class="media-object" src="../../../assets/TSPResults.png" width="700">
+
+<p>The results obtained provide us with a strong indication that the SciFlow framework can be applied easily and successfully, in enhancing the TSP-PSO algorithm. Further, this case study also demonstrate the ability to apply the SciFlow framework, to loop-like behaviour, which is nor possible in Directed Acyclic Graph (DAG) based solutions.</p>
+<p>For further information, checkout the code for this case study at <a href="https://github.com/SciFlow-FYP/TravellingSalesmanProblem">https://github.com/SciFlow-FYP/TravellingSalesmanProblem</a></p>
+
+<p>We welcome contributions! You can contribute to this project using the above link.</p>
