@@ -4,7 +4,7 @@
 
 <p>The workflow is constructed in the main function of the <b>“controlThread.go”</b> file. The commands array is captured from the “userScript.py” file, where we assign a number to each workflow module. The control thread executes the module based on this numbering.</p>
 
-<div id="codeSnippet">
+
 <pre>
   <code>
 //start module execution from here onwards
@@ -12,29 +12,29 @@ inChannelModule1 := make(chan string, 1)
 outChannelModule1 := make(chan string, 1)
 go pythonCall("workflow/"+commandsArray[0], inChannelModule1,"1")
 go messagePassing(inChannelModule1, outChannelModule1)
-fmt.Println(<-outChannelModule1)
+fmt.Println(&lt;-outChannelModule1)
 
 outChannelModule2 := make(chan string, 1)
 go pythonCall("workflow/"+commandsArray[1], outChannelModule2, "1")
 go messagePassing(outChannelModule1, outChannelModule2)
-fmt.Println(<- outChannelModule2)
+fmt.Println(&lt;- outChannelModule2)
 </code>
 </pre>
-</div>
 
-<p>The above code snippet corresponds to the first and second workflow modules (studentGreeting and multiplyByTwo). Channels are used to create dependency between modules. If you examine the above coe, you could observe that the out channel of the first module is fed as the in channel to the second module.</p>
-<p>Make sure to add in a similar code segment for each new workflow step. Replace <b>n</b> with the appropriate number, in an incremental fashion and <b>i</b> with the assigned index (from the userScript) of the module you wish to execute.</p>
 
-  <div id="codeSnippet">
+<p>The above code snippet corresponds to the first and second workflow modules (studentGreeting and multiplyByTwo). Channels are used to create dependency between modules. If you examine the above coe, you could observe that the <b>out</b> channel of the first module is fed as the <b>in</b> channel to the second module.</p>
+<p>Make sure to add in a similar code segment for each new workflow step. Replace <b>&lt;n&gt;</b> with the appropriate number, in an incremental fashion and <b>&lt;i&gt;</b> with the assigned index (from the userScript) of the module you wish to execute.</p>
+
+
   <pre>
     <code>
-  outChannelModulen := make(chan string, 1)
-  go pythonCall("workflow/"+commandsArray[i], outChannelModulen, "1")
-  go messagePassing(outChannelModule(n-1), outChannelModulen)
-  fmt.Println(<- outChannelModulen)
+    outChannelModule&lt;n&gt; := make(chan string, 1)
+    go pythonCall("workflow/"+commandsArray[&lt;i&gt;], outChannelModule&lt;n&gt;, "1")
+    go messagePassing(outChannelModule&lt;n-1&gt;, outChannelModule&lt;n&gt;)
+    fmt.Println(&lt;- outChannelModule&lt;n&gt;)
   </code>
   </pre>
-  </div>
+
 
 <p>Check out different ways to construct workflows in the section <a href="#">Special Workflow Constructs!</a></p>
 

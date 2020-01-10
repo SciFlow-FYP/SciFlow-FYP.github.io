@@ -32,9 +32,12 @@ func integrateMessagePassing(inChannel1 &lt;- chan string, inChannel2 &lt;- chan
     msg2 := &lt;- inChannel2
     outChannel &lt;- msg1 + msg2
 {{'}'}}
+</code>
+</pre>
 
+<pre>
+  <code>
 outChannelModule9 := make(chan string, 1)
-//pythonCall("workflow/integrateLabels/integrate.py", outChannelModule5)
 integratePythonCall("workflow/"+commandsArray[14], outChannelModule27, outChannelModule8, "1")
 integrateMessagePassing(outChannelModule27, outChannelModule8, outChannelModule9)
 fmt.Println(&lt;- outChannelModule9)

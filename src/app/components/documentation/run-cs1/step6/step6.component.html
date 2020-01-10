@@ -14,13 +14,9 @@
 
 <p>You can simply load these pre-written configurations with the following command in the <b>workflow/parslConfig.py</b> file.</p>
 
-<div id="codeSnippet">
-<pre>
-  <code>
-parsl.load(config_name)
-</code>
-</pre>
-</div>
+
+<pre><code>parsl.load(config_name)</code></pre>
+
 
 
 <p>The configuration files (in <b>workflow/configs/</b>) need to be slightly amended as per the configurations of your machine/cluster.</p>
@@ -37,7 +33,7 @@ parsl.load(config_name)
       <tr>
         <td><b>Local Threads</b></td>
         <td>
-          <p>from parsl.executors.threads import ThreadPoolExecutor</p>
+          <pre class="table-code"><code>from parsl.executors.threads import ThreadPoolExecutor</code></pre>
         </td>
         <td>
           <p>max_threads – Number of threads.</p>
@@ -47,9 +43,11 @@ parsl.load(config_name)
       <tr>
         <td><b>Local Cores</b></td>
         <td>
-          <p>from parsl.providers import LocalProvider</p>
-          <p>from parsl.channels import LocalChannel</p>
-          <p>from parsl.executors import HighThroughputExecutor</p>
+          <pre class="table-code"><code>
+from parsl.providers import LocalProvider
+from parsl.channels import LocalChannel
+from parsl.executors import HighThroughputExecutor
+          </code></pre>
         </td>
         <td>
           <p>cores_per_worker – cores to be assigned to each worker. </p>
@@ -60,17 +58,20 @@ parsl.load(config_name)
       <tr>
         <td><b>Ad-Hoc Cluster</b></td>
         <td>
-          <p>from parsl.providers import AdHocProvider</p>
-          <p>from parsl.channels import SSHChannel</p>
-          <p>from parsl.executors import HighThroughputExecutor</p>
-          <p>from parsl.providers import LocalProvider</p>
-          <p>from parsl.channels import LocalChannel</p>
-
+          <pre class="table-code"><code>
+from parsl.providers import AdHocProvider
+from parsl.channels import SSHChannel
+from parsl.executors import HighThroughputExecutor
+from parsl.providers import LocalProvider
+from parsl.channels import LocalChannel
+          </code></pre>
         </td>
         <td>
-          <p>'username': ‘YOUR USERNAME’</p>
-          <p>'script_dir': 'YOUR SCRIPT DIRECTORY'</p>
-          <p>'remote_hostnames': ['REMOTE HOST URL 1','REMOTE HOST URL 2', ...]</p>
+          <pre class="table-code"><code>
+'username': ‘YOUR USERNAME’
+'script_dir': 'YOUR SCRIPT DIRECTORY'
+'remote_hostnames': ['REMOTE HOST URL 1','REMOTE HOST URL 2', ...]
+          </code></pre>
         </td>
       </tr>
     </tbody>

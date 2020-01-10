@@ -32,10 +32,12 @@
     <br>
     <p>Think back to the workflow you formulated in step 01. Let’s construct the control thread in accordance with that workflow!</p>
     <p>Within the main function of the ‘controlThread.go’ file, call the workflow modules using the numbers assigned in userScript.py. Write the control thread code in the following format.</p>
-    <p>outChannelModule(n) := make(chan string, 1)</p>
-    <p>go pythonCall("workflow/"+commandsArray[i], outChannelModule(n), "1")</p>
-    <p>go messagePassing(outChannelModule(n-1), outChannelModule(n))</p>
-    <p>fmt.Println(<- outChannelModule(n))</p>
+    <pre><code>
+    outChannelModule&lt;n&gt; := make(chan string, 1)
+    go pythonCall("workflow/"+commandsArray[&lt;i&gt;], outChannelModule&lt;n&gt;, "1")
+    go messagePassing(outChannelModule&lt;n-1&gt;, outChannelModule&lt;n&gt;)
+    fmt.Println(&lt;- outChannelModule&lt;n&gt;)
+    </code></pre>
     <p>Apply additional workflow construct where necessary, by following the instructions given in Special Workflow Constructs. </p>
   </li>
   <li>

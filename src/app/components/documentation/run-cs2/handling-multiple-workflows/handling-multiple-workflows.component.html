@@ -14,7 +14,7 @@
 
 <p>Eg : </p>
 
-<div id="codeSnippet">
+
 <pre>
   <code>
 orderOfModules1 = ["dataFilesIntegration", "countrySelection", "selectUserDefinedColumns", "dropUniqueColumns", "dropColumnsCriteria","dropRowsCriteria","removeDuplicateRows", "missingValuesMode", "combineColumns", "integrate", "normalize","randomForestClassification", "knowledge_presentation_rf"]
@@ -24,21 +24,20 @@ orderOfModules2 = ["selectUserDefinedColumns","dropUniqueColumns", "removeDuplic
 orderOfModules3 = ["dropUserDefinedColumns","kmeansModelTraining","knowledge_presentation","svm"]
 </code>
 </pre>
-</div>
+
 </li>
 
 <li>Define necessary module variables for each branch, with the numbering scheme assigned.
 
-  <div id="codeSnippet">
+
   <pre>
     <code>
 selectColumns1 = ["GLOBALEVENTID","SQLDATE", "Actor1Geo_CountryCode", "Actor2Geo_CountryCode", "Actor1EthnicCode", "Actor2EthnicCode", "QuadClass", "GoldsteinScale", "NumMentions", "AvgTone"]
 
 selectColumns2 = ["data_id", "event_date", "year", "country"]
-
   </code>
   </pre>
-  </div>
+
 
 </li>
 
@@ -52,35 +51,35 @@ currentModule = "Name of Current module as defined in userScript.py"
 workflowNumber = sys.argv[1]
 
 if workflowNumber == "1":
-    orderOfModules = userScript.orderOfModules1
-    inputDataset = userScript.inputDataset1
-    outputLocation = userScript.outputLocation1
-    #Define necessary variables for module
-dropCols = userScript.dropCols1
+        orderOfModules = userScript.orderOfModules1
+        inputDataset = userScript.inputDataset1
+        outputLocation = userScript.outputLocation1
+        #Define necessary variables for module
+        dropCols = userScript.dropCols1
 elif workflowNumber == "2":
-    orderOfModules = userScript.orderOfModules2
-    inputDataset = userScript.inputDataset2
-    outputLocation = userScript.outputLocation2
-    #Define necessary variables for module
-    dropCols = userScript.dropCols2
+        orderOfModules = userScript.orderOfModules2
+        inputDataset = userScript.inputDataset2
+        outputLocation = userScript.outputLocation2
+        #Define necessary variables for module
+        dropCols = userScript.dropCols2
 elif workflowNumber == "3":
-    orderOfModules = userScript.orderOfModules3
-    inputDataset = userScript.inputDataset3
-    outputLocation = userScript.outputLocation3
-    #Define necessary variables for module
-    dropCols = userScript.dropCols3
+        orderOfModules = userScript.orderOfModules3
+        inputDataset = userScript.inputDataset3
+        outputLocation = userScript.outputLocation3
+        #Define necessary variables for module
+        dropCols = userScript.dropCols3
 
 df = pd.DataFrame()
 for i in range(len(orderOfModules)):
-    #print(orderOfModules[i])
-    if currentModule == orderOfModules[i]:
-        if i == 0:
-            df = pd.read_csv(inputDataset)
-            break
-        else:
-            previousModule = orderOfModules[i-1]
-            df = pd.read_csv(outputLocation + previousModule + ".csv")
-            break
+        #print(orderOfModules[i])
+        if currentModule == orderOfModules[i]:
+                if i == 0:
+                        df = pd.read_csv(inputDataset)
+                        break
+                else:
+                        previousModule = orderOfModules[i-1]
+                        df = pd.read_csv(outputLocation + previousModule + ".csv")
+                        break
 
 outputDataset = outputLocation + currentModule + ".csv"
 </code>
