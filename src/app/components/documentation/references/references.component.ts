@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./references.component.scss']
 })
 export class ReferencesComponent implements OnInit {
-
+  myThumbnail="../../../../assets/workflowx.png";
+  myFullresImage="../../../../assets/highresworkflow.png";
   constructor() { }
 
   ngOnInit() {
