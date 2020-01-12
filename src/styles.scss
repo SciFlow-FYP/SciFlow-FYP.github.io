@@ -3,6 +3,7 @@
 //@import url(http://fonts.googleapis.com/css?family=Sourece+Sans+Pro:400,300,700);
 //@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
 * {
   font-family: 'Roboto', sans-serif !important;
   font-size: 16px;
@@ -48,6 +49,7 @@ pre {
     overflow: auto;
     color: #00EE76;
     background: #000000;
+
     padding: 20;
     //font-size: 0.8rem;
     //font-family: Menlo, Monaco, monospace;
@@ -62,4 +64,9 @@ pre {
   font-size: 14px;
   margin-top: 40px;
   margin-bottom: 40px;
+
+}
+
+code {
+  font-family: 'Source Code Pro', monospace !important;
 }
