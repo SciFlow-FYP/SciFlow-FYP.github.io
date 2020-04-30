@@ -26,7 +26,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
     "bootstrap": "^3.4.1",
     "core-js": "^2.5.4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ngx-bootstrap": "^3.3.0",
     "ngx-image-zoom": "^0.4.1",
     "ngx-img-zoom": "^4.1.2",
